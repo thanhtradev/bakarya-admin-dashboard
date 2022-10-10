@@ -1,0 +1,23 @@
+extends ../layouts/authentication.pug
+
+block config
+    - var pageTitle = 'Login'
+
+block content
+    .container
+        .row.justify-content-center
+            .col-lg-5
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                    .card-header
+                        h3.text-center.font-weight-light.my-4 Login
+                    .card-body
+                        form
+                            .form-floating.mb-3
+                                input#inputUsername.form-control(type='text', placeholder='Username')
+                                label(for='inputUsername') Username
+                            .form-floating.mb-3
+                                input#inputPassword.form-control(type='password', placeholder='Password', autocomplete='on')
+                                label(for='inputPassword') Password
+                            .d-flex.align-items-center.justify-content-between.mt-4.mb-0
+                                a.small(href='password.html') Forgot Password?
+                                a.btn.btn-primary(onclick="login()", type="submit") Login
