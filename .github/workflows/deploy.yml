@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy NodeJS app
+      - name: Deploy admin dashboard
         uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.SSH_HOST}}
@@ -22,3 +22,5 @@ jobs:
             cd bakarya-admin-dashboard
             npm install
             npm run build
+            rm -rf /var/www/admin.bakarya.com/*
+            cp -r dist/* /var/www/admin.bakarya.com/
