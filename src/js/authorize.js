@@ -1,6 +1,6 @@
 function isLogged() {
     $.ajax({
-        url: 'http://localhost:5000/api/auth/admin',
+        url: 'http://api.bakarya.com/api/auth/admin',
         headers: {
             "x-access-token": sessionStorage.getItem("token")
         },

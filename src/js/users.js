@@ -10,15 +10,15 @@ function getUsersRenderTable() {
         success: function (users) {
             var body = '<tbody>'
             users.forEach(user => {
-                if (user.roles.map(role => role.name).includes("admin"))
+                if (user.roles.includes("ADMIN"))
                     return;
                 body += '<tr>';
-                body += '<td>' + user._id + '</td>';
+                body += '<td>' + user.id + '</td>';
                 body += '<td>' + user.username + '</td>';
                 body += '<td>' + user.email + '</td>';
-                body += '<td>' + user.roles.map((role) => role.name) + '</td>';
+                body += '<td>' + user.roles + '</td>';
                 body += '<td>' + new Date(user.createdAt).toLocaleString() + '</td>';
-                var button = user.isBlocked ? '<a role="button" class="btn btn-danger" onclick="unblockUser(\'' + user._id + '\')">Unblock</a>' : '<a role="button" class="btn btn-success" onclick="blockUser(\'' + user._id + '\')">Block</a>';
+                var button = user.isBlocked ? '<a role="button" class="btn btn-danger" onclick="unblockUser(\'' + user.id + '\')">Unblock</a>' : '<a role="button" class="btn btn-success" onclick="blockUser(\'' + user.id + '\')">Block</a>';
                 body += '<td>' + button + '</td>';
                 body += '</tr>';
             })
