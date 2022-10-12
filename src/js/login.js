@@ -11,6 +11,7 @@ function login() {
         }),
         success: function (data) {
             sessionStorage.setItem('token', data.accessToken);
+            sessionStorage.setItem('username', data.username);
             window.location.href = 'index.html';
         },
         error: () =>

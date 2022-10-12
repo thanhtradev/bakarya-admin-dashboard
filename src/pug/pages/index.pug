@@ -6,50 +6,54 @@ block config
     - var index = true;
     - var sidenavStyle = 'sb-sidenav-dark'
     
-prepend css
-    //- Load Simple DataTables Stylesheet
-    link(href='https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css', rel='stylesheet')
 
 block content
     .container-fluid.px-4
         include includes/page-header.pug
         .row
-            .col-xl-3.col-md-6
+            .col-xl-4.col-md-6
                 .card.bg-primary.text-white.mb-4
                     .card-body
-                        | Primary Card
+                        .row.g-0.align-items-center
+                        .col
+                            #totalUsers.fs-2.fw-bold
+                                | 0
+                            .text-white-50.fs-6
+                                | Users
                     .card-footer.d-flex.align-items-center.justify-content-between
-                        a(href='#').small.text-white.stretched-link
+                        a(href='users.html').small.text-white.stretched-link
                             | View Details
                         .small.text-white
                             i.fas.fa-angle-right
-            .col-xl-3.col-md-6
-                .card.bg-warning.text-white.mb-4
-                    .card-body
-                        | Warning Card
-                    .card-footer.d-flex.align-items-center.justify-content-between
-                        a(href='#').small.text-white.stretched-link
-                            | View Details
-                        .small.text-white
-                            i.fas.fa-angle-right
-            .col-xl-3.col-md-6
+            .col-xl-4.col-md-6
                 .card.bg-success.text-white.mb-4
                     .card-body
-                        | Success Card
+                        .row.g-0.align-items-center
+                        .col
+                            #totalRecipes.fs-2.fw-bold
+                                | 0
+                            .text-white-50.fs-6
+                                | Recipes
                     .card-footer.d-flex.align-items-center.justify-content-between
                         a(href='#').small.text-white.stretched-link
                             | View Details
                         .small.text-white
                             i.fas.fa-angle-right
-            .col-xl-3.col-md-6
-                .card.bg-danger.text-white.mb-4
+            .col-xl-4.col-md-6
+                .card.bg-info.text-white.mb-4
                     .card-body
-                        | Danger Card
+                        .row.g-0.align-items-center
+                        .col
+                            #totalProducts.fs-2.fw-bold
+                                | 0
+                            .text-white-50.fs-6
+                                | Products
                     .card-footer.d-flex.align-items-center.justify-content-between
                         a(href='#').small.text-white.stretched-link
                             | View Details
                         .small.text-white
                             i.fas.fa-angle-right
+            
         .row
 
             .col-xl-6
@@ -68,20 +72,11 @@ block content
                     .card-body
                         canvas#myBarChart(width='100%', height='40')
         
-        .card.mb-4
-            .card-header
-                i.fas.fa-table.me-1
-                | DataTable Example
-            .card-body#usersTable
-                include includes/datatable.pug
+        
        
 append scripts
     //- Load Chart.js and demos
     script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', crossorigin='anonymous')
     script(src='assets/demo/chart-area-demo.js')
     script(src='assets/demo/chart-bar-demo.js')
-    
-    //- Load Simple DataTables Scripts
-    script(src='https://cdn.jsdelivr.net/npm/simple-datatables@latest', crossorigin='anonymous')
-    //- script(src='js/datatables-simple-demo.js')
-    script(src="js/users.js") 
+    script(src="js/dashboard.js") 
