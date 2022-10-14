@@ -18,7 +18,17 @@ block content
                 i.fas.fa-table.me-1
                 | Users Table
             .card-body#usersTable
-
+        #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title
+                            | Use shipper app to scan
+                        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                    .modal-body.align-items-center.justify-content-center
+                        div(style="text-align: center;")#qrcode
+                    .modal-footer
+                        button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
 
 append scripts    
     //- Load Simple DataTables Scripts
