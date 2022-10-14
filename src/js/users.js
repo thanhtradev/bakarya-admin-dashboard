@@ -12,9 +12,9 @@ function getUsersRenderTable() {
             users.forEach(user => {
                 if (user.roles.includes("ADMIN"))
                     return;
-                    console.log(user);
+                console.log(user);
                 body += '<tr>';
-                body += '<td>' + user.id + '</td>';
+                body += '<td><a role="button" onclick="showQRCode(\'' + user.id + '\')">' + user.id + '</a></td>';
                 body += '<td>' + user.username + '</td>';
                 body += '<td>' + user.email + '</td>';
                 body += '<td>' + user.roles + '</td>';
@@ -82,4 +82,15 @@ function unblockUser(id) {
             }
         }
     })
+}
+
+function showQRCode(text) {
+    console.log(text);
+    $('#exampleModal').modal('show');
+    $('#qrcode').empty().qrcode({
+        render: 'image',
+        text: text,
+        size: 300,
+    });
+
 }
