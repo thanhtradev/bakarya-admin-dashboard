@@ -24,3 +24,4 @@ jobs:
             npm run build
             rm -rf /var/www/admin.bakarya.com/*
             cp -r dist/* /var/www/admin.bakarya.com/
+            systemctl restart nginx.service
