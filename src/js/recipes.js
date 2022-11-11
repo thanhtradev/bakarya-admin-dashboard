@@ -2,7 +2,7 @@ const table = '<table id="datatablesSimple"><thead><tr><th>ID</th><th>Name</th><
 
 function getUsersRenderTable() {
     $.ajax({
-        url: 'http://localhost:5000/api/admin/recipes',
+        url: 'http://api.bakarya.com/api/admin/recipes',
         headers: {
             "x-access-token": sessionStorage.getItem("token")
         },
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
 function blockRecipe(id) {
     $.ajax({
-        url: 'http://localhost:5000/api/admin/recipes/' + id + '/block',
+        url: 'http://api.bakarya.com/api/admin/recipes/' + id + '/block',
         headers: {
             "x-access-token": sessionStorage.getItem("token")
         },
@@ -70,7 +70,7 @@ function blockRecipe(id) {
 
 function unblockRecipe(id) {
     $.ajax({
-        url: 'http://localhost:5000/api/admin/recipes/' + id + '/unblock',
+        url: 'http://api.bakarya.com/api/admin/recipes/' + id + '/unblock',
         headers: {
             "x-access-token": sessionStorage.getItem("token")
         },
