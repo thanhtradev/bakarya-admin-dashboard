@@ -97,3 +97,4 @@ function showQRCode(text) {
         text: text,
         size: 300,
     });
+}
