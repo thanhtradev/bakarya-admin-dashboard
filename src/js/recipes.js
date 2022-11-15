@@ -27,7 +27,6 @@ function getUsersRenderTable() {
             $('#recipesTable').empty();
             $('#recipesTable').append(table);
             $('#datatablesSimple').append(body);
-            getUsersRenderTable();
             const datatablesSimple = document.getElementById('datatablesSimple');
             if (datatablesSimple) {
                 new simpleDatatables.DataTable(datatablesSimple);

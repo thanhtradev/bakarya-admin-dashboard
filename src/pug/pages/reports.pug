@@ -1,0 +1,42 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Recipe Reports';
+    - var sidenavStyle = 'sb-sidenav-dark'
+
+prepend css
+    //- Load Simple DataTables Stylesheet
+    link(href='https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css', rel='stylesheet')
+
+
+block content
+    .container-fluid.px-4
+        include includes/page-header.pug
+        .card.mb-4
+            .card-header
+                i.fas.fa-table.me-1
+                | Pending Recipe Reports
+            .card-body#pendingRecipeReportsTable
+        .card.mb-4
+            .card-header
+                i.fas.fa-table.me-1
+                | Recipe Reports Table
+            .card-body#recipeReportsTable
+        #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title
+                            | Use shipper app to scan
+                        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                    .modal-body.align-items-center.justify-content-center
+                        div(style="text-align: center;")#qrcode
+                    .modal-footer
+                        button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
+
+append scripts    
+    //- Load Simple DataTables Scripts
+    script(src='https://cdn.jsdelivr.net/npm/simple-datatables@latest', crossorigin='anonymous')
+    //- script(src='js/datatables-simple-demo.js')
+    script(src="js/recipeReports.js") 
